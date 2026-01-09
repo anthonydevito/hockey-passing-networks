@@ -1,11 +1,11 @@
 import pandas as pd
 
 def get_enriched_tracking(tracking_path, roster_path):
-    # 1. Load data
+    # Load data
     tracking_df = pd.read_csv(tracking_path)
     roster_df = pd.read_csv(roster_path)
     
-    # 2. In this dataset, we join on jersey_number (tracking) and jn (roster)
+    # In this dataset, we join on jersey_number (tracking) and jn (roster)
     # Note: tracking jersey_number 100 I think is the puck?  so might have to handle that later
     enriched_df = tracking_df.merge(
         roster_df[['player', 'jn', 'position']], 
